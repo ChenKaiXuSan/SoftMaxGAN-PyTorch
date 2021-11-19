@@ -86,7 +86,6 @@ class Trainer_softmaxgan(object):
                 self.G.train()
 
                 self.D.zero_grad()
-                self.G.zero_grad()
 
                 # compute loss with real images 
                 d_out_real = self.D(real_images)
@@ -106,6 +105,7 @@ class Trainer_softmaxgan(object):
 
                 d_loss.backward(retain_graph=True)
 
+                self.d_optimizer.step()
 
                 # # train the generator every 5 steps
                 if i % self.g_num == 0:
@@ -117,12 +117,13 @@ class Trainer_softmaxgan(object):
 
                     # compute loss with fake images 
                     g_out_fake = self.D(fake_images) # batch x n
+                    g_out_real = self.D(real_images)
                     
                     # Partition function
-                    # Z =  torch.sum(torch.exp(-g_out_fake))
+                    Z =  torch.sum(torch.exp(-g_out_fake)) + torch.sum(torch.exp(-g_out_fake))
 
                     # calculate loss of generator and update 
-                    g_loss = g_target * (torch.sum(g_out_fake) + torch.sum(d_out_real)) + self.log(Z)
+                    g_loss = g_target * (torch.sum(g_out_fake) + torch.sum(g_out_real)) + self.log(Z)
 
                     g_loss.backward()
 
@@ -131,7 +132,7 @@ class Trainer_softmaxgan(object):
 
             # log to the tensorboard
             self.logger.add_scalar('d_loss', d_loss.data, epoch)
-            self.logger.add_scalar('g_loss_fake', g_loss.data, epoch)
+            self.logger.add_scalar('g_loss', g_loss.data, epoch)
             # end one epoch
 
             # print out log info
