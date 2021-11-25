@@ -1,7 +1,7 @@
 # SoftMaxGAN-PyTorch
 PyTorch implements a SoftMax GAN neural network structure
 ## Overview
-This repository contains an Pytorch implementation of self-attention GAN.
+This repository contains an Pytorch implementation of SoftMax GAN.
 With full coments and my code style.
 
 ## About SAGAN
@@ -19,54 +19,7 @@ In this paper, we propose the Self-Attention Gen- erative Adversarial Network (S
 
 ## Implement
 ``` python
-usage: main.py [-h] [--model {sagan}] [--img_size IMG_SIZE]
-               [--channels CHANNELS] [--g_num G_NUM] [--z_dim Z_DIM]
-               [--g_conv_dim G_CONV_DIM] [--d_conv_dim D_CONV_DIM]
-               [--version VERSION] [--epochs EPOCHS] [--batch_size BATCH_SIZE]
-               [--num_workers NUM_WORKERS] [--g_lr G_LR] [--d_lr D_LR]
-               [--beta1 BETA1] [--beta2 BETA2]
-               [--pretrained_model PRETRAINED_MODEL] [--train TRAIN]
-               [--parallel PARALLEL] [--dataset {mnist,cifar10,fashion}]
-               [--use_tensorboard USE_TENSORBOARD] [--dataroot DATAROOT]
-               [--log_path LOG_PATH] [--model_save_path MODEL_SAVE_PATH]
-               [--sample_path SAMPLE_PATH] [--log_step LOG_STEP]
-               [--sample_step SAMPLE_STEP] [--model_save_step MODEL_SAVE_STEP]
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --model {sagan}
-  --img_size IMG_SIZE
-  --channels CHANNELS   number of image channels
-  --g_num G_NUM         train the generator every 5 steps
-  --z_dim Z_DIM         noise dim
-  --g_conv_dim G_CONV_DIM
-  --d_conv_dim D_CONV_DIM
-  --version VERSION     the version of the path, for implement
-  --epochs EPOCHS       numer of epochs of training
-  --batch_size BATCH_SIZE
-                        batch size for the dataloader
-  --num_workers NUM_WORKERS
-  --g_lr G_LR           use TTUR lr rate for Adam
-  --d_lr D_LR           use TTUR lr rate for Adam
-  --beta1 BETA1
-  --beta2 BETA2
-  --pretrained_model PRETRAINED_MODEL
-  --train TRAIN
-  --parallel PARALLEL
-  --dataset {mnist,cifar10,fashion}
-  --use_tensorboard USE_TENSORBOARD
-                        use tensorboard to record the loss
-  --dataroot DATAROOT   dataset path
-  --log_path LOG_PATH   the output log path
-  --model_save_path MODEL_SAVE_PATH
-                        model save path
-  --sample_path SAMPLE_PATH
-                        the generated sample saved path
-  --log_step LOG_STEP   every default{10} epoch save to the log
-  --sample_step SAMPLE_STEP
-                        every default{100} epoch save the generated images and
-                        real images
-  --model_save_step MODEL_SAVE_STEP
 ```
 
 ## Usage
@@ -84,7 +37,7 @@ For the FID, I use the pytorch implement of this repository. [FID score for PyTo
 
 - MNIST
 For the 10k epochs training on MNIST dataset, compare with about 10k samples, I get the FID: 
-> 500 failure 
+> 85.71858261109799
 - CIFAR10
 <!-- For the 10k epochs training on the CIFAR10 dataset, compare with about 10k samples, I get the FID: 
 > 108.10053254296571 :warning: I think this test is failing, the reason dont konw why. -->
