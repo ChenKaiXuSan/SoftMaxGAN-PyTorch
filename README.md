@@ -4,10 +4,10 @@ PyTorch implements a SoftMax GAN neural network structure
 This repository contains an Pytorch implementation of SoftMax GAN.
 With full coments and my code style.
 
-## About SAGAN
-If you're new to SNGAN, here's an abstract straight from the paper[1]:
+## About SoftMax GAN
+If you're new to SoftMax GAN, here's an abstract straight from the paper[1]:
 
-In this paper, we propose the Self-Attention Gen- erative Adversarial Network (SAGAN) which allows attention-driven, long-range dependency modeling for image generation tasks. Traditional convolutional GANs generate high-resolution de- tails as a function of only spatially local points in lower-resolution feature maps. In SAGAN, de- tails can be generated using cues from all feature locations. Moreover, the discriminator can check that highly detailed features in distant portions of the image are consistent with each other. Fur- thermore, recent work has shown that generator conditioning affects GAN performance. Leverag- ing this insight, we apply spectral normalization to the GAN generator and find that this improves training dynamics. The proposed SAGAN per- forms better than prior work1, boosting the best published Inception score from 36.8 to 52.52 and reducing Fr´echet Inception distance from 27.62 to 18.65 on the challenging ImageNet dataset. Visu- alization of the attention layers shows that the generator leverages neighborhoods that correspond to object shapes rather than local regions of fixed shape.
+Softmax GAN is a novel variant of Generative Adversarial Network (GAN). The key idea of Softmax GAN is to replace the classification loss in the original GAN with a softmax cross-entropy loss in the sample space of one single batch.
 
 ## Dataset 
 - MNIST
