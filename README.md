@@ -42,71 +42,13 @@ For the 10k epochs training on MNIST dataset, compare with about 10k samples, I 
 <!-- For the 10k epochs training on the CIFAR10 dataset, compare with about 10k samples, I get the FID: 
 > 108.10053254296571 :warning: I think this test is failing, the reason dont konw why. -->
 - FASHION-MNIST
-<!-- For the 10k epochs training on the CIFAR10 dataset, compare with about 10k samples, I get the FID: 
->  46.96466240507351 -->
+For the 10k epochs training on the CIFAR10 dataset, compare with about 10k samples, I get the FID: 
+>   123.1316002259374
 
 > :warning: I dont konw if the FID is right or not, because I cant get the lowwer score like the paper or the other people get it. 
 ## Network structure
 ``` python
-Generator(
-  (l1): Sequential(
-    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
-    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (2): ReLU(inplace=True)
-  )
-  (l2): Sequential(
-    (0): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (2): ReLU(inplace=True)
-  )
-  (l3): Sequential(
-    (0): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (2): ReLU(inplace=True)
-  )
-  (l4): Sequential(
-    (0): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (2): ReLU(inplace=True)
-  )
-  (last): Sequential(
-    (0): ConvTranspose2d(64, 1, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): Tanh()
-  )
-  (attn2): Attention(
-    (theta): Conv2d(64, 8, kernel_size=(1, 1), stride=(1, 1), bias=False)
-    (phi): Conv2d(64, 8, kernel_size=(1, 1), stride=(1, 1), bias=False)
-    (g): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
-    (o): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
-  )
-)
-Discriminator(
-  (l1): Sequential(
-    (0): Conv2d(1, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): LeakyReLU(negative_slope=0.2, inplace=True)
-  )
-  (l2): Sequential(
-    (0): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): LeakyReLU(negative_slope=0.2, inplace=True)
-  )
-  (l3): Sequential(
-    (0): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): LeakyReLU(negative_slope=0.2, inplace=True)
-  )
-  (l4): Sequential(
-    (0): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
-    (1): LeakyReLU(negative_slope=0.2, inplace=True)
-  )
-  (attn2): Attention(
-    (theta): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
-    (phi): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
-    (g): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-    (o): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-  )
-  (last_adv): Sequential(
-    (0): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
-  )
-)
+
 ```
 ## Result
 - MNIST  
@@ -116,4 +58,4 @@ Discriminator(
 - Fashion-MNIST
 <!-- ![9900_fashion](img/9900_fashion.png) -->
 ## Reference
-1. [SAGAN](http://arxiv.org/abs/1805.08318)
+<!-- 1. [SAGAN](http://arxiv.org/abs/1805.08318) -->
